@@ -180,17 +180,8 @@ def eval_datasets(
                     results.append(sample)
 
                     print(f"generated_answer: {generated_answer}, expected_answer: {expected_answer}")
-                    
-                    # Determine if the prediction is correct
-                    is_correct = (
-                        generated_answer.strip().lower().replace(".", "") ==
-                        expected_answer.strip().lower().replace(".", "")
-                    )
-                    if is_correct:
-                        correct_count += 1
 
-                current_accuracy = (correct_count / (i + batch_size)) * 100
-                pbar.set_description(f"Evaluating (Accuracy: {current_accuracy:.2f})")
+                pbar.set_description("Evaluating")
 
     # Save the results to a JSON file
     with open(res_path, 'w', encoding='utf-8') as f:
