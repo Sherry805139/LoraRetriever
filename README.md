@@ -4,7 +4,7 @@
 
 The official repository containing the code, data, model, for our paper accpected by ACL 2024 findings. [LoraRetriever: Input-Aware LoRA Retrieval and Composition for Mixed Tasks in the Wild](https://aclanthology.org/2024.findings-acl.263/).
 
-<img src="imgs/lora_retriever_framework.pdf" alt="lora_retriever_framework" />
+<img src="imgs/lora_retriever_framework.jpg" alt="lora_retriever_framework" />
 
 ## Prerequisites
 
