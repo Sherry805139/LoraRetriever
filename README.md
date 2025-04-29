@@ -28,7 +28,7 @@ pip install -r requirements.txt
 bash eval_all.sh
 
 # results summarization script
-python summarize_results
+python summarize_results.py
 ```
 
 ##  Resources

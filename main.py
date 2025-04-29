@@ -25,7 +25,7 @@ def load_base_model(model_name_or_path='meta-llama/Llama-2-7b-hf'):
     base_model.bfloat16()
     return base_model, tokenizer
 
-def init_vector_db(config_path='./config/config_new.json'):
+def init_vector_db(config_path='./config/config2.json'):
     """
     Initialize the vector database with configurations from the specified JSON file.
     """
@@ -55,7 +55,7 @@ def load_peft_model(lora_module_list, base_model):
 def eval_datasets(
     data_path, 
     res_path, 
-    config_path="config/config_new.json", 
+    config_path="config/config2.json", 
     eval_type="fusion", 
     lora_num=3, 
     batch_size=1, 
@@ -120,7 +120,7 @@ def eval_datasets(
                     if model_size == '7b':
                         exclude_list = [f"Styxxxx/llama2_7b_lora-{task}" for task in task_names]
                     else:
-                        exclude_list = [f"LoRAs_Llama2/llama2_13b_lora-{task}" for task in task_names]
+                        exclude_list = [f"Styxxxx/llama2_13b_lora-{task}" for task in task_names]
 
                 # Perform retrieval to get top-k LoRA modules
                 module_list, mapping_matrix = perform_search(input_text, k=lora_num, exclude_list=exclude_list)
@@ -131,7 +131,7 @@ def eval_datasets(
                     if model_size == '7b':
                         exclude_list = [f"Styxxxx/llama2_7b_lora-{task}" for task in task_names]
                     else:
-                        exclude_list = [f"LoRAs_Llama2/llama2_13b_lora-{task}" for task in task_names]
+                        exclude_list = [f"Styxxxx/llama2_13b_lora-{task}" for task in task_names]
 
                     unique_items = list(set(exclude_list))
                     item_to_index = {item: idx for idx, item in enumerate(unique_items)}
@@ -141,9 +141,9 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.bfloat16).to(device)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
+                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
                 mapping_matrix_tensor /= lora_num
-                
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
 
@@ -182,6 +182,7 @@ def eval_datasets(
                     print(f"generated_answer: {generated_answer}, expected_answer: {expected_answer}")
 
                 pbar.set_description("Evaluating")
+                peft_model.unload()
 
     # Save the results to a JSON file
     with open(res_path, 'w', encoding='utf-8') as f:

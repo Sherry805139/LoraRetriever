@@ -651,24 +651,26 @@ class Linear(nn.Module, LoraLayer):
                     stacked_lora_A.append(lora_A_weight)
                     stacked_lora_B.append(lora_B_weight)
 
+                    scaling = self.scaling[active_adapter]
+
                 # 堆叠成最终的矩阵
                 stacked_lora_A = torch.stack(stacked_lora_A, dim=0)  # p x r x d
                 stacked_lora_B = torch.stack(stacked_lora_B, dim=0)  # p x d x r
 
-                stacked_lora_A = stacked_lora_A.to(torch.bfloat16)
-                stacked_lora_B = stacked_lora_B.to(torch.bfloat16)
+                stacked_lora_A = stacked_lora_A.to(x.dtype)
+                stacked_lora_B = stacked_lora_B.to(x.dtype)
 
                 if merging_type == 'fusion':
                     fusion_lora_A = torch.einsum('bp,prd->brd', lora_mapping, stacked_lora_A)
                     fusion_lora_B = torch.einsum('bp,pdr->bdr', lora_mapping, stacked_lora_B)
                     mid=torch.einsum('bld,brd->blr',x, fusion_lora_A)
                     res=torch.einsum('blr,bdr->bld',mid,fusion_lora_B)
-                    result = result + res
                 else:
                     mid = torch.einsum('bld,prd->blpr', x, stacked_lora_A)
                     mid=torch.einsum('blpr,pdr->blpd',mid, stacked_lora_B)
                     res=torch.einsum('blpd,bp->bld',mid, lora_mapping)
-                    result = result + res
+                
+                result = result + res*scaling
 
             result = result.to(torch_result_dtype)
         return result
