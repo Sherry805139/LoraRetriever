@@ -25,7 +25,7 @@ def initialize_index(models, model_size='7b'):
     global global_index, global_model, model_names
 
     # Load the embedding model for retrieval
-    global_model = INSTRUCTOR('Styxxxx/lora_retriever')
+    global_model = INSTRUCTOR('Styxxxx/lora_retriever', device='cpu')
 
     all_model_embeddings = []
     model_names = []

@@ -1,5 +1,5 @@
 import torch
-from transformers import LlamaForCausalLM, LlamaTokenizer
+from transformers import LlamaForCausalLM, LlamaTokenizer, BitsAndBytesConfig
 from tqdm import tqdm
 from peft import PeftModel
 import json
@@ -19,10 +19,22 @@ def load_base_model(model_name_or_path='meta-llama/Llama-2-7b-hf'):
     tokenizer.pad_token_id = 0
     tokenizer.padding_side = "left"
 
-    base_model = LlamaForCausalLM.from_pretrained(
-        model_name_or_path, torch_dtype=torch.float16
+    # base_model = LlamaForCausalLM.from_pretrained(
+    #     model_name_or_path, torch_dtype=torch.float16
+    # )
+    # base_model.bfloat16()
+
+    bnb_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_compute_dtype=torch.bfloat16
     )
-    base_model.bfloat16()
+    base_model = LlamaForCausalLM.from_pretrained(
+        model_name_or_path,
+        quantization_config=bnb_config,
+        device_map="auto",
+    )
+
     return base_model, tokenizer
 
 def init_vector_db(config_path='./config/config2.json'):
@@ -48,7 +60,7 @@ def load_peft_model(lora_module_list, base_model):
         lora_lists.append(f"adapter{i}")
 
     peft_model.set_adapter(lora_lists)
-    peft_model = peft_model.to(device)
+    # peft_model = peft_model.to(device)
     peft_model.eval()
     return peft_model
 
@@ -102,6 +114,7 @@ def eval_datasets(
         dataset = load_dataset(data_path)
 
     # Prepare the dataset with full prompts
+    # 对数据集中的每一条样本应用指定的函数
     eval_data = dataset["train"].map(generate_and_tokenize_prompt)
 
     model_path = f"meta-llama/Llama-2-{model_size}-hf"
@@ -141,8 +154,9 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
-                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
+                # mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
+                # mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.bfloat16)
                 mapping_matrix_tensor /= lora_num
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
@@ -152,14 +166,21 @@ def eval_datasets(
                     input_text,
                     max_length=512,
                     return_tensors="pt",
-                    padding=True,
+                    # padding=True,
+                    padding="max_length",
+                    truncation=True,
                 ).to(device)
+                # ensure mapping on same device as inputs
+                mapping_matrix_tensor = mapping_matrix_tensor.to(inputs["input_ids"].device)
 
                 # Generate model outputs with given parameters
                 outputs = peft_model.generate(
                     input_ids=inputs["input_ids"],
+                    attention_mask=inputs["attention_mask"],
                     max_new_tokens=50,
-                    temperature=0.001,
+                    # temperature=0.001,
+                    temperature=0.0,
+                    do_sample=False,
                     merging_type=eval_type,
                     lora_mapping=mapping_matrix_tensor
                 )
@@ -182,7 +203,7 @@ def eval_datasets(
                     print(f"generated_answer: {generated_answer}, expected_answer: {expected_answer}")
 
                 pbar.set_description("Evaluating")
-                peft_model.unload()
+                # peft_model.unload()
 
     # Save the results to a JSON file
     with open(res_path, 'w', encoding='utf-8') as f:
