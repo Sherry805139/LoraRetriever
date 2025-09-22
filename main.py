@@ -1,5 +1,5 @@
 import torch
-from transformers import LlamaForCausalLM, LlamaTokenizer, BitsAndBytesConfig
+from transformers import LlamaForCausalLM, LlamaTokenizer
 from tqdm import tqdm
 from peft import PeftModel
 import json
@@ -7,7 +7,7 @@ import numpy as np
 from utils.instructor_retrieval import perform_search, initialize_index
 from datasets import load_dataset
 from utils.prompter import Prompter
-    
+
 # Prompter is a utility class to create a prompt for a given input
 prompter = Prompter("alpaca")
 
@@ -19,22 +19,10 @@ def load_base_model(model_name_or_path='meta-llama/Llama-2-7b-hf'):
     tokenizer.pad_token_id = 0
     tokenizer.padding_side = "left"
 
-    # base_model = LlamaForCausalLM.from_pretrained(
-    #     model_name_or_path, torch_dtype=torch.float16
-    # )
-    # base_model.bfloat16()
-
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.bfloat16
-    )
     base_model = LlamaForCausalLM.from_pretrained(
-        model_name_or_path,
-        quantization_config=bnb_config,
-        device_map="auto",
+        model_name_or_path, torch_dtype=torch.float16
     )
-
+    base_model.bfloat16()
     return base_model, tokenizer
 
 def init_vector_db(config_path='./config/config2.json'):
@@ -60,7 +48,7 @@ def load_peft_model(lora_module_list, base_model):
         lora_lists.append(f"adapter{i}")
 
     peft_model.set_adapter(lora_lists)
-    # peft_model = peft_model.to(device)
+    peft_model = peft_model.to(device)
     peft_model.eval()
     return peft_model
 
@@ -114,7 +102,6 @@ def eval_datasets(
         dataset = load_dataset(data_path)
 
     # Prepare the dataset with full prompts
-    # 对数据集中的每一条样本应用指定的函数
     eval_data = dataset["train"].map(generate_and_tokenize_prompt)
 
     model_path = f"meta-llama/Llama-2-{model_size}-hf"
