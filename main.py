@@ -7,9 +7,6 @@ import numpy as np
 from utils.instructor_retrieval import perform_search, initialize_index
 from datasets import load_dataset
 from utils.prompter import Prompter
-
-if torch.isnan(probs).any() or torch.isinf(probs).any() or (probs < 0).any():
-    print("Invalid values detected in probs!")
     
 # Prompter is a utility class to create a prompt for a given input
 prompter = Prompter("alpaca")
