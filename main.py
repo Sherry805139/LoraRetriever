@@ -8,6 +8,9 @@ from utils.instructor_retrieval import perform_search, initialize_index
 from datasets import load_dataset
 from utils.prompter import Prompter
 
+if torch.isnan(probs).any() or torch.isinf(probs).any() or (probs < 0).any():
+    print("Invalid values detected in probs!")
+    
 # Prompter is a utility class to create a prompt for a given input
 prompter = Prompter("alpaca")
 
@@ -154,9 +157,8 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                # mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
-                # mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.bfloat16)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
+                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
                 mapping_matrix_tensor /= lora_num
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
@@ -166,21 +168,14 @@ def eval_datasets(
                     input_text,
                     max_length=512,
                     return_tensors="pt",
-                    # padding=True,
-                    padding="max_length",
-                    truncation=True,
+                    padding=True,
                 ).to(device)
-                # ensure mapping on same device as inputs
-                mapping_matrix_tensor = mapping_matrix_tensor.to(inputs["input_ids"].device)
 
                 # Generate model outputs with given parameters
                 outputs = peft_model.generate(
                     input_ids=inputs["input_ids"],
-                    attention_mask=inputs["attention_mask"],
                     max_new_tokens=50,
-                    # temperature=0.001,
-                    temperature=0.0,
-                    do_sample=False,
+                    temperature=0.001,
                     merging_type=eval_type,
                     lora_mapping=mapping_matrix_tensor
                 )
@@ -203,7 +198,7 @@ def eval_datasets(
                     print(f"generated_answer: {generated_answer}, expected_answer: {expected_answer}")
 
                 pbar.set_description("Evaluating")
-                # peft_model.unload()
+                peft_model.unload()
 
     # Save the results to a JSON file
     with open(res_path, 'w', encoding='utf-8') as f:
