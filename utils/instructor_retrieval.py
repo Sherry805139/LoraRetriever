@@ -50,10 +50,18 @@ def initialize_index(models, model_size='7b'):
         average_embedding = np.mean(embeddings, axis=0)
         all_model_embeddings.append(average_embedding)
 
+    # model_name里是所有models的模型名
+    # model_samples里是所有models的instruction和input
+    # all_model_embeddings里是所有models的embedding
+
     # Create a FAISS index with the collected embeddings
+    # 把所有embeddings堆叠到一个矩阵中
     all_model_embeddings = np.vstack(all_model_embeddings)
+    # d是每个embeddings的维度
     d = all_model_embeddings.shape[1]
+    # 创建一个基于内积的平坦索引（内积越大 = 向量越相似）
     global_index = faiss.IndexFlatIP(d)
+    # global_index是检索数据库，包含所有模型的向量
     global_index.add(all_model_embeddings)
 
 def get_embeddings(text_list):
@@ -82,17 +90,27 @@ def perform_search(query_list, k=20, exclude_list=None):
     """
     global global_index, model_names
 
-    all_results_set = set()
-    query_to_results_map = {}
+    all_results_set = set() # 空集合，用于去重
+    query_to_results_map = {} # 空字典，存储查询到结果的映射
 
     # Perform search for each query
     for j, query in enumerate(query_list):
-        query_embedding = get_embeddings([[instruction, query]])[0]
+        # 1. 生成查询文本的嵌入向量
+        query_embedding = get_embeddings([[instruction, query]])[0] # 取第一个（也是唯一一个）向量
+        # instruction应为全局/传入的指令前缀，比如“检索相似模型：”
+        
+        # 2. 用FAISS的库函数search，检索k+1个结果，返回distances（相似度分数）和indices（索引位置）
         distances, indices = global_index.search(np.array([query_embedding]), k+1)
 
-        contained = False
+        # 3. 初始化标记和当前查询的结果列表
+        contained = False # 标记：当前查询是否需要排除某个模型
         results = []
+
+        # 4. 遍历搜索到的k+1个结果，处理排除逻辑
         for i, idx in enumerate(indices[0]):
+            # indices[0]：当前查询的所有结果索引（因为只查了1个查询，所以取第0维）
+            
+            # 特殊情况：如果遍历到第k个结果（即原本的Topk），但还没处理排除，说明排除的模型不在前k个，直接跳过
             if i == k and not contained:
                 # If we reached the last allowed result but haven't accounted for exclusion yet, skip
                 continue
@@ -100,21 +118,29 @@ def perform_search(query_list, k=20, exclude_list=None):
             model_name = model_names[idx]
 
             # Exclude specific model for this query if applicable
+            # 如果有exclude_list，且当前模型是该查询要排除的，跳过并标记contained
             if exclude_list and model_name == exclude_list[j]:
                 contained = True
                 continue
-
+            
+            # 把符合条件的模型名加入全局去重集合和当前查询结果列表
             all_results_set.add(model_name)
             results.append(model_name)
 
         query_to_results_map[query] = results
 
     # Convert all results to a list and construct a mapping matrix
+    # 1. 集合转列表：得到所有查询的去重模型名列表（集合自动去重，列表方便后续按顺序索引）
     all_results_list = list(all_results_set)
+
+    # 2. 构建二进制匹配矩阵（行=查询，列=去重模型）
     mapping_matrix = []
 
     for query in query_list:
-        mapping_vector = [1 if result in query_to_results_map[query] else 0 for result in all_results_list]
+        # 对于所有all_results_list中的（已经去重）模型，如果在query查询得到的模型集合中，标记为1
+        mapping_vector = [1 if result in query_to_results_map[query] 
+                            else 0 
+                            for result in all_results_list]
         mapping_matrix.append(mapping_vector)
 
     return all_results_list, mapping_matrix

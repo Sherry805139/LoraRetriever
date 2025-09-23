@@ -1,0 +1,55 @@
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.64it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.10it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.83it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:2852: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [00:14<?, ?item/s]
+['Styxxxx/llama2_7b_lora-cosmos_qa', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 193, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 159, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3249, in _sample
+    next_tokens = torch.multinomial(probs, num_samples=1).squeeze(1)
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.72it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.13it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.87it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)

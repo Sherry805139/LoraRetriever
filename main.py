@@ -151,6 +151,7 @@ def eval_datasets(
                 inputs = tokenizer(
                     input_text,
                     max_length=512,
+                    truncation=True, 
                     return_tensors="pt",
                     padding=True,
                 ).to(device)
@@ -159,7 +160,9 @@ def eval_datasets(
                 outputs = peft_model.generate(
                     input_ids=inputs["input_ids"],
                     max_new_tokens=50,
-                    temperature=0.001,
+                    temperature=0.7,            # 不要再用 0.001
+                    top_p=0.9,
+                    top_k=50,
                     merging_type=eval_type,
                     lora_mapping=mapping_matrix_tensor
                 )
@@ -185,6 +188,8 @@ def eval_datasets(
                 peft_model.unload()
 
     # Save the results to a JSON file
+    os.makedirs(os.path.dirname(res_path), exist_ok=True)
+
     with open(res_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
 
