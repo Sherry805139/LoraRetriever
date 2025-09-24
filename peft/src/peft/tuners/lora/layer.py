@@ -660,6 +660,9 @@ class Linear(nn.Module, LoraLayer):
                 stacked_lora_A = stacked_lora_A.to(x.dtype)
                 stacked_lora_B = stacked_lora_B.to(x.dtype)
 
+                # 确保 lora_mapping 与本层张量在同一设备/类型（多卡分片时很重要）
+                lora_mapping = lora_mapping.to(device=stacked_lora_A.device, dtype=stacked_lora_A.dtype)
+
                 if merging_type == 'fusion':
                     fusion_lora_A = torch.einsum('bp,prd->brd', lora_mapping, stacked_lora_A)
                     fusion_lora_B = torch.einsum('bp,pdr->bdr', lora_mapping, stacked_lora_B)

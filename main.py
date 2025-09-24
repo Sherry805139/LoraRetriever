@@ -1,5 +1,6 @@
 import torch
 from transformers import LlamaForCausalLM, LlamaTokenizer
+import os
 from tqdm import tqdm
 from peft import PeftModel
 import json
@@ -22,7 +23,6 @@ def load_base_model(model_name_or_path='meta-llama/Llama-2-7b-hf'):
     base_model = LlamaForCausalLM.from_pretrained(
         model_name_or_path, torch_dtype=torch.float16, device_map="auto"
     )
-    base_model.bfloat16()
     return base_model, tokenizer
 
 def init_vector_db(config_path='./config/config2.json'):
@@ -141,8 +141,7 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(base_model.device)
-                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.float32)
                 mapping_matrix_tensor /= lora_num
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
@@ -154,7 +153,10 @@ def eval_datasets(
                     truncation=True, 
                     return_tensors="pt",
                     padding=True,
-                ).to(base_model.device)
+                )
+                # 将输入移动到模型首参数所在设备（device_map="auto" 多卡场景下的首设备）
+                first_device = next(base_model.parameters()).device
+                inputs = inputs.to(first_device)
 
                 # Generate model outputs with given parameters
                 outputs = peft_model.generate(
