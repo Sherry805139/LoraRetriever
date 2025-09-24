@@ -1,0 +1,639 @@
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  5.76it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.20it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.93it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:24<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:39<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:56<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:00<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:08<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:12<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:18<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:22<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:26<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:29<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:34<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:38<?, ?item/s]['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-multirc']
+generated_answer: Abraham A. Ribicoff, who served as United States Secretary of Health, Education, and Welfare, was married to Casey Ribicoff, who was born in Chicago., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: Ardmore Airport (New Zealand), runwayName, "03R/21L", expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Austin, Texas is in the United States which has an ethnic group called African Americans. The demonym of Americans is American., expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: Andrews County Airport has an elevation of 973.0 m above sea level and a runway surface type of asphalt., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Alfredo Zitarrosa is a solo singer who has performed Zamba music and was signed to the RCA Records label. He has been associated with the musicians Ciro Pérez and Héctor Numa Moraes., expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is located in DuPage County, Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Barny Cakes, which contains sponge cake, is from France, where the leader is Gérard Larcher and the leader is Claude Bartolone. France's language is French., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: Dougherty County, Georgia, United States, Albany, United States,  Native Americans, Americans, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Bionico is a dessert dish variation with honey., expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: The ISBN for Loyal Character Dancer is 1-56947-301-3, expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: The book Aenir by Garth Nix has the oclcNumber 45644811 and is in the print format., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante was born on May 9th, 1989 in Brandon, Manitoba. He played for Anyang Halla., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: The Hypermarcas products are drugs, they are located in São Paulo., expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: Elliot See BIRTH_PLACE Dallas
+Elliot See EDUCATION_LEVEL Bachelor's Degree
+Elliot See DEATH_PLACE St. Louis
+Elliot See EMP, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Aleksandre Guruli plays for AS Lyon-Duchère and FC Karpaty Lviv., expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: Alcatraz Versus the Evil Librarians PUBLISHED Hardcover ISBN 0-439-92550-9, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Aaron Turner is associated with the Black metal genre and Death metal fusion. He is a member of Sumac (band)., expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Hypermarcas is a cosmetics company located in Brazil. It was founded on January 1, 2001. The country has a population density of 23.8., expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: The A.F.C. Fylde plays at Warton, Fylde. The club has 3180 members., expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: The AIDAluna has been active since 2009-03-22., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: LANGUAGE_SPOKEN_IN Greece Greece
+LANGUAGE_NAME Greek, expected_answer: Greece, language, Greek language
+generated_answer: Abdulsalami Abubakar was the successor to Olusegun Obasanjo and the predecessor to Mike Akhigbe. While serving as vice president, Mike Akhigbe was in office., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: 1 Decembrie 1918 University LOCATION Alba Iulia, Romania
+Romania LEADER Klaus Iohannis
+Romania CAPITAL Bucharest
+Romania NATION, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: The Greece Superleague was won by Olympiacos FC.
+AEK Athens FC compete in the Greece Superleague.
+Their manager is Gus Poyet, who played for Chelsea FC.
+His, expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Binignit is a traditional dish from the Philippines, made with coconut milk and sweet potatoes. It is found in the Visayas region., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: Gruppo Bertone was founded in Turin in Italy and designed the Abarth 1000 GT Coupé., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.Evaluating:   0%|          | 0/2395 [01:42<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:46<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:50<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [01:53<?, ?item/s]
+
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-multirc']
+generated_answer: 1998 RO1, epoch, 2013-11-04, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+generated_answer: Baked Alaska, country, "France, United States or China"; Baked Alaska, ingredient, Meringue., expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-multirc']
+generated_answer: Accademia di Architettura di Mendrisio, location, Ticino., expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Texas, location, United States, expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.96it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.49it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.40it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:30<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:45<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:52<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:14<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:25<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:30<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:33<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:37<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:44<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:48<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:51<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:54<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:57<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:02<?, ?item/s]['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Abraham A. Ribicoff was the spouse of Casey Ribicoff and was the Secretary of Health, Education, and Welfare. Casey Ribicoff was born in Chicago., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: Ardmore Airport (New Zealand), runwayName, "03R/21L", expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: african american woman with a child in the city of austin, texas, united states, expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: airport elevation above the sea level in feet and the surface type of the runway, expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Alfredo, music, perform, singer, expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is part of DuPage County, Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: The leader of the French Senate, Claude Bartolone, on the left, and the leader of the French National Assembly, Gérard Larcher, on the right, cut a Barny Cake, a sponge cake filled, expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: city, country, ethnic_group, location, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: honeydew melon bionico with a variation of honeydew and blackberries on a dessert course, expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: loyal character dancers dancing in a circus isbn number 1-56947-301-3, expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aenir, author, Garth Nix. Print., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante was born in Brandon, Manitoba in 1989. He plays for Anyang Halla., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: hypermarcas is located in sao paulo and manufactures drugs, expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: action
+date
+location
+person, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aleksandre Guruli, club, FC Karpaty Lviv; Aleksandre Guruli, club, AS Lyon-Duchère, expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: book
+is
+published, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aaron Turner associated with the band and genre death metal and black metal., expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Brazil's cosmetics industry is in hypergrowth mode, thanks to the country's high population density and growing middle class. Hypermarcas, a pharmaceutical company, has a founding date of, expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: An image of A.F.C. Fylde's ground, Warton, Fylde with a caption of A.F.C. Fylde, numberOfMembers, 3180 and a, expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna is a cruise ship.
+
+AIDAluna is active in 2009 on 22 March., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: language
+speak
+speech
+talk, expected_answer: Greece, language, Greek language
+generated_answer: Olusegun Obasanjo, Mike Akhigbe and Abdulsalami Abubakar., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: The Germans of Romania, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: The name of Olympiacos F.C., expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-e2e_nlg', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Binignit is a dish from the Philippines. It is made with sweet potato and coconut milk. It is from the Visayas region., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: Abarth 1000 GT Coupé is designed by Gruppo Bertone and is based in Turin, Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: What is the number of days from 2013-11-04 to 1998 RO1?, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+generated_answer: What is the name of the dessert?, expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+Evaluating:   0%|          | 0/2395 [02:07<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:10<?, ?item/s]
+generated_answer: Accademia di Architettura di Mendrisio is located in which country?, expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: What is the location of the Andrews County Airport in Texas?, expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.48it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.00it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.70it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:29<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:48<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:11<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:15<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:24<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:28<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:33<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:38<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:42<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:46<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:51<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:55<?, ?item/s]['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Abraham A. Ribicoff was the United States Secretary of Health, Education, and Welfare. He was married to Casey Ribicoff, who was born in Chicago., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: Ardmore Airport (New Zealand), elevationAboveTheSeaLevel, 34.0, expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Americans are the demonym for people from the United States, where African Americans are an ethnic group. Austin, Texas is in the U.S., expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: The 4th runway at Andrews County Airport is surfaced with asphalt and is 973 metres above sea level., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Alfredo Zitarrosa, genre, Zamba; Alfredo Zitarrosa, label, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa M, expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is part of DuPage County in Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: The ingredient in Barny Cakes is Sponge cake and it comes from France where the leader is Gérard Larcher and Claude Bartolone. French is the language spoken in France., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: United States, ethnicGroup, Native Americans; United States, country, Albany, Georgia; Albany, Georgia, country, United States; United States, demonym, Americans, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Honey is a dish variation for Bionico, which is served as a dessert., expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: A Loyal Character Dancer, ISBN number is "1-56947-301-3", expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Garth Nix is the author of the book Aenir, which is printed and has the Oclc number 45644811., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante, born in Brandon, Manitoba, on May 9, 1989, played for Anyang Halla and was born in 1989., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Hypermarcas, which has its location in São Paulo, produces drugs., expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: Elliot See, birthPlace, Dallas; Elliot See, birthDate, 1927-07-23; Elliot See, almaMater, University of Texas at Austin; Elliot See, deathPlace, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aleksandre Guruli played for FC Karpaty Lviv and AS Lyon-Duchere., expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: Alcatraz Versus the Evil Librarians, medium, "Hardcover"; Alcatraz Versus the Evil Librarians, isbn, 0-439-92550-9, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aaron Turner, genre, Black metal; Aaron Turner, associatedBand/associatedMusicalArtist, Sumac (band); Black metal, musicFusionGenre, Death metal, expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Hypermarcas is a Brazilian company that produces cosmetics and pharmaceuticals. It was founded on January 1, 2001., expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: The full name of Association Football Club Fylde is AFC Fylde. They are based at Warton, Fylde and have 3180 members., expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna began its active years on 22 March 2009., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Greece LANGUAGE Greek, expected_answer: Greece, language, Greek language
+generated_answer: Abdulsalami Abubakar was the Vice President of Nigeria while Mike Akhigbe was the President. Before that Oladipo Diya was the President and his predecessor was Mike Akhigbe., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: 1. Decembrie 1918 University, location, Alba Iulia; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; Romania, nationalAnthem, "De, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: Olympiacos F.C., manager, Gus Poyet; Olympiacos F.C., league, Greece Superleague; Olympiacos F.C., pastChampion, 1997; Gus Po, expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+Evaluating:   0%|          | 0/2395 [01:59<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:04<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:09<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:13<?, ?item/s]
+generated_answer: Binignit is a dish from the Visayas region of the Philippines and includes sweet potato and coconut milk as its main ingredients., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: The Abarth 1000 GT Coupé was designed by Gruppo Bertone, which was founded in Turin, Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Asteroid 1998 RO1, epoch, 2013-11-04, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+generated_answer: Baked Alaska, ingredient, Meringue., expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-record']
+generated_answer: Accademia di Architettura di Mendrisio was established in 1996 in Ticino, Switzerland by Johann Schneider-Ammann. It has 600 students., expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Andrews County Airport is in Texas which is a Spanish speaking state and the capital is Austin. The largest city is Houston. The country is the United States., expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-common_gen']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.01it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.83it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:34<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:47<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:55<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:10<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:20<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:31<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:34<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:37<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:44<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:46<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:51<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:54<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:58<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:02<?, ?item/s]['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Abraham A. Ribicoff was the United States Secretary of Health, Education, and Welfare. His spouse Casey Ribicoff was born in Chicago., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: Ardmore Airport (New Zealand), runwayLength, 1411.0; Ardmore Airport (New Zealand), 3rdRunwaySurfaceType, Poaceae; Ardmore Airport (New Zealand), operatingOrgan, expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: african american family standing in front of the country, expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: An airport with an asphalt runway and an elevation above the sea level., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: performer
+singer, expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: chicago is part of du page county in illinois ., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Barny Cakes are French cakes made with sponge cake, cream and jam, and are served on the eve of All Saints' Day., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: location
+sentence
+word, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: honey bionico dessert, expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: a loyal character dancer is dancing for her audience at the opera, expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aenir, author, Garth Nix; Aenir, oclcNumber, 45644811; Aenir, mediaType, "Print", expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante, club, Anyang Halla, birthDate, 1989-05-09., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: hypermarcas drug store located in sao paulo, expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: graduate, pilot, university, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: club is verb, and it is linking a football player to a football club, expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: book
+publish
+sentence, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: aaron turner associated with black metal genre and band sumac as well as death metal and music fusion genre, expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: hypermarcas is a company that was founded on 1/1/2001 in brazil . it is located in brazil and its industry is pharmaceuticals . hypermarcas makes cosmetics . brazil, expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: association football club fylde at the millpond ground in warton, fylde, expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna, activeYearsStartDate, 2009-03-22, expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: greece, language, speak, expected_answer: Greece, language, Greek language
+generated_answer: Abdulsalami Abubakar, successor, Olusegun Obasanjo; Abdulsalami Abubakar, inOfficeWhileVicePresident, Mike Akhigbe; Mike Akhigbe,, expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Country, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: Gus Poyet, whose club is Real Zaragoza even though he played for Chelsea F.C., expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-e2e_nlg', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: The Binignit is a sweet potato dish from the Visayas region of the Philippines. It is made with coconut milk., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: Abarth 1000 GT Coupé is a car designed by Gruppo Bertone.  It was founded in Turin and is located in Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Epoch, 2013-11-04, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+generated_answer: Baked Alaska, mainIngredient, Meringue., expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+Evaluating:   0%|          | 0/2395 [02:07<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:11<?, ?item/s]
+generated_answer: Accademia di Architettura di Mendrisio, location, Mendrisio, Ticino, Switzerland., expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Texas, language, Spanish language; Texas, largestCity, Houston; Texas, capital, Austin, Texas; Texas, country, United States, expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.09it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.84it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.71it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:28<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:53<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:11<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:14<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:24<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:28<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:32<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:35<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:39<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:42<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:46<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:50<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:54<?, ?item/s]['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Abraham A. Ribicoff, the United States Secretary of Health, Education, and Welfare, was married to Casey Ribicoff, who was born in Chicago., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: What is the name of the 3rd runway surface type?, expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: African Americans are a ethnic group of the United States. The country is called the United States of America. The demonym of the United States is American. Austin, Texas is located in the United States., expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: Andrews County Airport has an asphalt runway with an elevation above the sea level of 973.0., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Alfredo Zitarrosa, background, Solo singer; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, associatedBand, expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is located in DuPage County, Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Barny cakes are a French food which include sponge cake. The country of France is led by Gérard Larcher and Claude Bartolone. The language spoken in France is French., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: Albany, Georgia, isPartOf, Dougherty County, Georgia; United States, ethnicGroup, Native Americans; United States, inhabitedBy, Americans, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: bionico dessert course with a variation of honey, expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: dance character dancer isbn number, expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aenir, which is printed, was written by Garth Nix and has the Oclc number 45644811., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante was born in Brandon, Manitoba on May 9th, 1989 and plays for Anyang Halla., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Hypermarcas, based in Sao Paulo, produces drugs., expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: Elliott See, almaMater, University of Texas at Austin; Elliott See, birthDate, 1927-07-23; Elliott See, deathPlace, St. Louis; Elliott See,, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Aleksandre Guruli played for FC Karpaty Lviv and AS Lyon-Duchère., expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: Alcatraz Versus the Evil Librarians, publisher, Hardcover, ISBN, 0-439-92550-9, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aaron Turner is a black metal artist who is associated with the band Sumac (band). Black metal is a music fusion genre that is associated with death metal., expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Hypermarcas, founded in 2001, is a cosmetics company in the pharmaceutical industry. It is located in Brazil where the population density is 23.8., expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: A.F.C. Fylde are based in Warton, Fylde and have 3180 members. Their full name is "Association Football Club Fylde"., expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna's active years started on 22 March 2009., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Greece, language, Greek language, expected_answer: Greece, language, Greek language
+generated_answer: Olusegun Obasanjo succeeded Abdulsalami Abubakar who was vice president under Mike Akhigbe. Akhigbe's predecessor was Oladipo Diya., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: 1 Decembrie 1918 University, city, Alba Iulia; Romania, capital, Bucharest; Romania, leaderTitle, Prime Minister of Romania; Romania, nationalAnthem, Dește, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: AEK Athens FC, league, Super League Greece; Gus Poyet, club, Real Zaragoza; Olympiacos F.C., manager, Gus Poyet; Olympiacos F.C., pastChamp, expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: The main ingredients of Binignit are sweet potatoes and coconut milk and it is a dish from the Philippines. It is also a dish from the Visayas region., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: The Abarth 1000 GT Coupé was designed by Gruppo Bertone, founded in Turin, Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Orbit, 2013-11-04, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+Evaluating:   0%|          | 0/2395 [01:58<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:04<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:07<?, ?item/s]
+generated_answer: Baked Alaska, ingredient, Meringue., expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-web_nlg_en', 'Styxxxx/llama2_7b_lora-multirc']
+generated_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and has 600 students. The country's leader is Johann Schneider-, expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Andrews County Airport is located in Texas, United States, where the Spanish language is spoken and Houston is the largest city. The capital of Texas is Austin., expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-common_gen', 'Styxxxx/llama2_7b_lora-web_nlg_en']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.47it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.25it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  4.11it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:28<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:47<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:07<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:11<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:21<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:24<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:29<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:32<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:36<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:38<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:42<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:46<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:50<?, ?item/s]['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Abraham A. Ribicoff's spouse was Casey Ribicoff who was born in Chicago. He was the United States Secretary of Health, Education, and Welfare., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: Ardmore Airport (New Zealand) has what type of surface for the 3rd runway?, expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: African Americans are an ethnic group in the United States, which is also the country of Austin, Texas, where the demonym is American., expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: The 4th runway surface type of the Andrews County Airport is asphalt. The elevation above the sea level is 973.0., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Alfredo Zitarrosa is a singer from Argentina who performs Zamba music and was signed to RCA Records. He has been associated with musicians Ciro Pérez and Héctor Numa Moraes., expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is located in DuPage County, Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: France is the country where Barny Cakes are made. It is the leader is Gérard Larcher and Claude Bartolone. The ingredient is Sponge cake. The language is French., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: Americans are the people inhabiting the United States. The country is the location of Albany, a city in Dougherty County, Georgia. The country also includes the ethnic group of Native Americans., expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: The dessert Bionico is served with honey., expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: A Loyal Character Dancer is available for purchase with an isbn of "1-56947-301-3"., expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aenir by Garth Nix is a print book with an oclcNumber of 45644811., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante was born in Brandon, Manitoba on May 9, 1989. He is a hockey player and plays for Anyang Halla., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Drugs are produced by Hypermarcas in São Paulo., expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: Elliot See BIRTH_PLACE "Dallas"
+Elliot See BIRTH_DATE 1927-07-23
+Elliot See DEATH_PLACE "St. Louis", expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aleksandre Guruli plays for FC Karpaty Lviv and AS Lyon-Duchère., expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: Alcatraz Versus the Evil Librarians ISBN 0-439-92550-9, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: Aaron Turner is a member of Sumac, a black metal band that is a fusion of death metal and black metal., expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Hypermarcas is a cosmetics company in Brazil. It was founded in 2001. The industry is pharmaceuticals. The population density in Brazil is 23.8., expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: The A.F.C. Fylde is located at Warton, Fylde. They have 3180 members and their full name is "Association Football Club Fylde"., expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna's active years started on 22nd March, 2009., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-dart', 'Styxxxx/llama2_7b_lora-common_gen']
+generated_answer: Greece LANGUAGE Greek, expected_answer: Greece, language, Greek language
+generated_answer: Mike Akhigbe was the vice president to Olusegun Obasanjo and Abdulsalami Abubakar. Oladipo Diya was his predecessor., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: 1 Decembrie 1918 University LOCATION Alba Iulia
+Country Romania CAPITAL Bucharest
+National Anthem Deșteaptă-te, române!
+Leader Title Prime, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: Gus Poyet played for Chelsea F.C. and is the manager of Real Zaragoza, which is the club he played for. He also was the manager of AEK Athens FC in the Greece Superleague, expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-dart']
+generated_answer: In the Philippines, in the Visayas, the main ingredient of Binignit is sweet potato, with coconut milk as the main ingredient., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: Abarth 1000 GT Coupé was designed by Gruppo Bertone, which was founded in Turin, Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Orbit around Jupiter, expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+Evaluating:   0%|          | 0/2395 [01:54<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:57<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:00<?, ?item/s]
+generated_answer: Baked Alaska, country, "France, United States or China"; Baked Alaska, region, "Paris, New York or Hong Kong"; Baked Alaska, ingredient, Meringue., expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-multirc', 'Styxxxx/llama2_7b_lora-dart']
+generated_answer: Which country is located in Ticino?, expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Texas is the largest city in Andrews County Airport, expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-record', 'Styxxxx/llama2_7b_lora-common_gen']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/sentence_transformers/models/Dense.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model.load_state_dict(torch.load(os.path.join(input_path, 'pytorch_model.bin'), map_location=torch.device('cpu')))
+load INSTRUCTOR_Transformer
+max_seq_length  512
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  4.79it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  6.04it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  5.81it/s]
+Evaluating:   0%|          | 0/2395 [00:00<?, ?item/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Evaluating:   0%|          | 0/2395 [00:31<?, ?item/s]Evaluating:   0%|          | 0/2395 [00:51<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:13<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:16<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:27<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:30<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:35<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:38<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:42<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:45<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:48<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:51<?, ?item/s]Evaluating:   0%|          | 0/2395 [01:55<?, ?item/s]['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Abraham A. Ribicoff's wife is Casey Ribicoff who was born in Chicago and worked as United States Secretary of Health, Education and Welfare., expected_answer: Abraham A. Ribicoff once worked for the United States Secretary of Health, Education, and Welfare office and was married to Chicago-born Casey Ribicoff.
+generated_answer: The 3rd runway surface type at the Ardmore Airport, New Zealand is Poaceae. The airport is operated by the Civil Aviation Authority of New Zealand and is located at an elevation of 34.0 above, expected_answer: Ardmore Airport in New Zealand is operated by the Civil Aviation Authority of New Zealand and is 34 metres above sea level. It has a runway named 03R/21L which is 1,411 long and its third runway has a poaceae surface.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Austin, Texas is in the U.S. where the demonym is Americans and African Americans are one of the ethnic groups., expected_answer: The country of Austin, Texas, is United States and its inhabitants are called Americans and African Americans are an ethnic group within the country.
+generated_answer: The elevation above the sea level of Andrews County Airport is 973.0 and the 4th runway surface type is asphalt., expected_answer: Andrews County Airport is 973 metres above sea level and The 4th runway is made of Asphalt.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes;, expected_answer: Alfredo Zitarrosa, recordLabel, RCA Records; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Ciro Pérez; Alfredo Zitarrosa, associatedBand/associatedMusicalArtist, Héctor Numa Moraes; Alfredo Zitarrosa, background, "solo singer"; Alfredo Zitarrosa, genre, Zamba (artform)
+generated_answer: Chicago is located in DuPage County, Illinois., expected_answer: Chicago is part of DuPage County in Illinois.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Barny Cakes contain Sponge cake. They are made in France, where the language is French. The country's leaders are Gérard Larcher and Claude Bartolone., expected_answer: Barny Cakes, which are made from sponge cake, are from France, where Gerard Larcher and Claude Bartolone are leaders and French is the language spoken.
+generated_answer: Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans; United States, demonym, Americans; United States, demonym, Americans, ethnicGroup, Native Americans; United States, country, Alb, expected_answer: United States, demonym, Americans; Albany, Georgia, isPartOf, Dougherty County, Georgia; Albany, Georgia, country, United States; United States, ethnicGroup, Native Americans in the United States
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Bionico, which is a dessert, has a honey variation., expected_answer: A popular dessert is Bionico and a variation of this dish can be honey.
+generated_answer: The ISBN number of A Loyal Character Dancer is 1-56947-301-3., expected_answer: The book, A Loyal Character Dancer, has the ISBN number of 1-56947-301-3.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: The book Aenir, by Garth Nix, was published in print. It has the Oclc number 45644811., expected_answer: Aenir, written by Garth Nix, was produced in print and has the OCLC number 45644811.
+generated_answer: Alex Plante, born in Brandon, Manitoba on May 9, 1989, plays for Anyang Halla and was born in 1989., expected_answer: Alex Plante, who played for the club Anyang Halla, was born on May 9th 1989, in Brandon, Manitoba.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Drugs are manufactured by Hypermarcas in São Paulo., expected_answer: The main product of Hypermarcas, which is located in São Paulo, is drugs.
+generated_answer: Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; Elliot See, almaMater, University of Texas at Austin; Elliot See, deathPlace, expected_answer: Elliot See, almaMater, University of Texas at Austin; Elliot See, occupation, Test pilot; Elliot See, birthDate, "1927-07-23"; Elliot See, birthPlace, Dallas; University of Texas at Austin, affiliation, University of Texas System; Elliot See, deathPlace, St. Louis; Elliot See, status, "Deceased"
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Aleksandre Guruli played for FC Karpaty Lviv and AS Lyon-Duchère., expected_answer: Aleksandre Guruli's former clubs include FC Karpaty Lviv and AS Lyon-Duchère.
+generated_answer: Alcatraz Versus the Evil Librarians, medium, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, 0-439-92550-9, expected_answer: Alcatraz Versus the Evil Librarians, mediaType, Hardcover; Alcatraz Versus the Evil Librarians, isbnNumber, "0-439-92550-9"
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Aaron Turner is a black metal musician and the musical artist of Sumac. Black metal is a fusion of death metal., expected_answer: Aaron Turner performed with the band Sumac and is a Black metal musician. Death metal is a musical fusion of black metal.
+generated_answer: Hypermarcas, founded on 1st January 2001, is located in Brazil. It produces cosmetics and is in the pharmaceuticals industry. The population density of Brazil is 23.8, expected_answer: Hypermarcas was founded January 1, 2001 as a pharmaceutical company primarily focusing on cosmetics. It's located in Brazil, which has as population density of 23.8.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Association Football Club Fylde has 3180 members and plays at the ground Warton, Fylde., expected_answer: AFC Fylde has the full name "Association Football Club Fylde," they have 3180 members and their ground is located in Warton, Fylde.
+generated_answer: AIDAluna's active years started on March 22, 2009., expected_answer: AIDAluna service was started on the 22nd of March, 2009.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: Greece, language, Greek language, expected_answer: Greece, language, Greek language
+generated_answer: Mike Akhigbe was Vice President while Abdulsalami Abubakar was President. Abdulsalami Abubakar was succeeded by Olusegun Obasanjo., expected_answer: Abdulsalami Abubakar served while Mike Akhigbe, who was preceded by Oladipo Diya, was Vice President. He was succeeded by Olusegun Obasanjo.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: 1 Decembrie 1918 University, location, Alba Iulia; Romania, capital, Bucharest; Romania, leaderTitle, Prime Minister of Romania; Romania, ethnicGroup, The Germans, expected_answer: Romania, ethnicGroup, Germans of Romania; Romania, leaderTitle, Prime Minister of Romania; Romania, leader, Klaus Iohannis; Romania, capital, Bucharest; 1 Decembrie 1918 University, city, Alba Iulia; 1 Decembrie 1918 University, country, Romania; Romania, anthem, Deșteaptă-te, române!
+generated_answer: Olympiacos F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Real Zaragoza, manager, Gus Poyet; Olympiacos F.C., league, expected_answer: AEK Athens F.C., league, Superleague Greece; Superleague Greece, champions, Olympiacos F.C.; AEK Athens F.C., manager, Gus Poyet; Gus Poyet, club, Real Zaragoza; Gus Poyet, club, Chelsea F.C.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: The Binignit is a dish from the Visayas region of the Philippines where sweet potatoes are used as an ingredient. Coconut milk is also a main ingredient., expected_answer: Binignit comes from the Visayas region of the Philippines. Its main ingredients are sweet potato and coconut milk.
+generated_answer: The Abarth 1000 GT Coupé was designed by Gruppo Bertone in Turin, Italy., expected_answer: Gruppo Bertone, of Turin Italy, designed the Abarth 1000 GT Coupe.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: (66063) 1998 RO1 has an epoch date of 2013-11-04., expected_answer: 66063 1998 RO1 has an epoch date of 4 November 2013.
+Evaluating:   0%|          | 0/2395 [01:58<?, ?item/s]Evaluating:   0%|          | 0/2395 [02:02<?, ?item/s]../aten/src/ATen/native/cuda/TensorCompare.cu:110: _assert_async_cuda_kernel: block: [0,0,0], thread: [0,0,0] Assertion `probability tensor contains either `inf`, `nan` or element < 0` failed.
+Evaluating:   0%|          | 0/2395 [02:04<?, ?item/s]
+generated_answer: The main ingredients of Baked Alaska are Meringue, ice cream, sponge cake or Christmas pudding. Baked Alaska is from France, United States or China and can be found in the regions of, expected_answer: Baked Alaska has the main ingredients of meringue, ice cream and sponge cake (or Christmas pudding). It is found in France, the US, China, Hong Kong, New York and Paris.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+generated_answer: The Accademia di Architettura di Mendrisio, with 600 students, is located in the Ticino region of Switzerland, where the leader is Johann Schneider-Ammann. It was established in, expected_answer: The Accademia di Architettura di Mendrisio is located in Ticino, Switzerland. It was established in 1996 and it has 600 students. The leader of Switzerland is Johann Schneider-Ammann.
+generated_answer: Andrews County Airport is located in Texas, United States. The capital of Texas is Austin, the largest city is Houston. Spanish is spoken in Texas., expected_answer: Andrews County Airport is in Texas in the U.S.A. where Spanish is one of the languages spoken. Houston is the largest city in the state and its capital is Austin.
+['Styxxxx/llama2_7b_lora-web_nlg_en']
+Traceback (most recent call last):
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 198, in <module>
+    fire.Fire(eval_datasets)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 135, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 468, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/fire/core.py", line 684, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+  File "/home/hmpiao/xuerong/mine/LoraRetriever/main.py", line 160, in eval_datasets
+    outputs = peft_model.generate(
+  File "/home/hmpiao/xuerong/LoraRetriever/peft/src/peft/peft_model.py", line 1846, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2215, in generate
+    result = self._sample(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 3195, in _sample
+    while self._has_unfinished_sequences(
+  File "/data2/hmpiao/tmp/envs/lora_retriever/lib/python3.10/site-packages/transformers/generation/utils.py", line 2413, in _has_unfinished_sequences
+    elif this_peer_finished:
+RuntimeError: CUDA error: device-side assert triggered
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
