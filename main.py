@@ -20,7 +20,7 @@ def load_base_model(model_name_or_path='meta-llama/Llama-2-7b-hf'):
     tokenizer.padding_side = "left"
 
     base_model = LlamaForCausalLM.from_pretrained(
-        model_name_or_path, torch_dtype=torch.float16
+        model_name_or_path, torch_dtype=torch.float16, device_map="auto"
     )
     base_model.bfloat16()
     return base_model, tokenizer
@@ -48,7 +48,7 @@ def load_peft_model(lora_module_list, base_model):
         lora_lists.append(f"adapter{i}")
 
     peft_model.set_adapter(lora_lists)
-    peft_model = peft_model.to(device)
+    # peft_model = peft_model.to(device)
     peft_model.eval()
     return peft_model
 
@@ -141,8 +141,9 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
-                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
+                # mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
+                # mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.float32, device=base_model.device)
                 mapping_matrix_tensor /= lora_num
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
@@ -154,7 +155,7 @@ def eval_datasets(
                     truncation=True, 
                     return_tensors="pt",
                     padding=True,
-                ).to(device)
+                ).to(base_model.device)
 
                 # Generate model outputs with given parameters
                 outputs = peft_model.generate(
