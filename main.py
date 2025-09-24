@@ -141,9 +141,8 @@ def eval_datasets(
                         mapping_matrix[item_idx, item_to_index[item]] = 1
 
                 print(module_list)
-                # mapping_matrix_tensor = torch.tensor(mapping_matrix).to(device)
-                # mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
-                mapping_matrix_tensor = torch.tensor(mapping_matrix, dtype=torch.float32, device=base_model.device)
+                mapping_matrix_tensor = torch.tensor(mapping_matrix).to(base_model.device)
+                mapping_matrix_tensor = mapping_matrix_tensor.to(torch.bfloat16)
                 mapping_matrix_tensor /= lora_num
                 # Load the PEFT model with selected adapters
                 peft_model = load_peft_model(module_list, base_model)
