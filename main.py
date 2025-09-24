@@ -1,5 +1,5 @@
 import torch
-import os
+# import os
 from transformers import LlamaForCausalLM, LlamaTokenizer
 from tqdm import tqdm
 from peft import PeftModel
@@ -189,7 +189,7 @@ def eval_datasets(
                 peft_model.unload()
 
     # Save the results to a JSON file
-    os.makedirs(os.path.dirname(res_path), exist_ok=True)
+    # os.makedirs(os.path.dirname(res_path), exist_ok=True)
 
     with open(res_path, 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=4)
